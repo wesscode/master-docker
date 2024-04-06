@@ -27,6 +27,7 @@
 
 ## DockerFile
 *arquivo para criar imagens*
+    - Multi stage: Define responsabilidades claras, onde será gerada imagem para cada stage, mas só será considerada a ultima imagem gerada dentro do dockerfile. Ajuda na segurança, organização.
 
 ## Docker run
 *comando para criar container*
