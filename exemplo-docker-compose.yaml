@@ -1,0 +1,67 @@
+# Define a versão do Docker Compose. Versão "3" é uma das mais recentes e suporta várias funcionalidades avançadas.
+version: "3"
+
+# Define os serviços que serão criados e gerenciados pelo o compose.
+services:
+
+  # Define o primeiro serviço, chamado "api-produtos". 
+  api-produtos:
+    # Nome do container que será criado para este serviço.
+    container_name: api-produtos
+
+    # Instruções para construir a imagem do container.
+    build:
+      # Define o contexto de construção (diretório onde o Docker procurará os arquivos necessários para a construção).
+      context: ../src
+      # Especifica o caminho para o Dockerfile dentro do contexto de construção.
+      dockerfile: ./web/Dockerfile
+    
+    # Política de reinício do container. "Always" significa que o container sempre reinicia.
+    restart: always
+
+    # Define variáveis de ambiente dentro do contriner.
+    environment:      
+      ASPNETCORE_ENVIRONMENT: Development
+    
+    # Define as redes às quais este serviço se conectará.
+    networks:
+      - store-network
+
+    # Especifica dependências de serviço, ou seja, "api-produtos" dependee de "cache-redis".
+    depends_on:
+      - cache-redis
+  # Define o segundo serviço, chamado "cache-redis".
+  cache-redis:
+    # Especifica a imagem do Docker a ser usada para este serviço. Aqui, está usando a imagem "redis" com a tag "alpine".
+    image: redis:alpine
+
+    # Nome do container para este serviço.
+    container_name: cache-redis
+    
+    # Comando customizado que será executado dentro do container. Configura o servidor Redis.
+    command: redis-server --save 20 1 --requirepass p@ssw0rd
+
+    # Mapeia portas do host para o container. A porta 16379 do host é mapeada para a porta 6379 do container.
+    ports:
+      - "16379:6379"
+    
+    # Conecta o serviço à rede definina abaixo.
+    networks:
+      - store-network
+
+    # Define volumes para persistência de dados. "cache" é um volume que mapeia para "/data" no container.
+    volumes:
+      - cache:/data
+      
+networks:
+  # Rede chamada "store-network"
+  store-network:
+    # Usa o drive de rede "bridge", que permite a comunicação entre containers.
+    driver: bridge
+
+# Define volumes para armazenamento e persistência de dados.
+volumes:
+  # Volume chamado "cache".
+  cache:
+    # Usa o driver "local" para armazenamento de dados no disco do host.
+    driver: local
