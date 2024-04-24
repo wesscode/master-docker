@@ -19,9 +19,9 @@
 ## Tipo de volumes
 *Definição de volume é o compartilhamento de um espaço para armazenamento no host, o container tem acesso a uma **Docker area** dentro do Filesystem*
 
-  - Bind mount 
-  - Volume
-  - tmpfs mount
+  - Bind mount: Compartilhar dados do container para a máquina host. Considerado um compartilhamento inseguro por que está fora da zona de controle do Docker.(FileSystem)
+  - Tmpfs mount:  Montado na memória temporáriamente, outro container não consegue enxergar.
+  - Volume: Uma forma mais segura de armazenamento, por que o dado é persistido dentro da Area reservada para o Docker. Consegue gerar backups e controle do docker.
 
   docker run -d -p 8080:80 --name nginx-demo -v /mnt/c/volume-docker:/usr/share/nginx/html:ro nginx
 
