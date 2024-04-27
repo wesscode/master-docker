@@ -1,18 +1,18 @@
 # Use a imagem oficial do SQL Server como base
 FROM mcr.microsoft.com/mssql/server:2019-latest
 
-USER root
-# Defina os argumentos e forneça valores padrão.
-ARG USERNAME=usuario-padrao
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+# USER root
+# # Defina os argumentos e forneça valores padrão.
+# ARG USERNAME=usuario-padrao
+# ARG USER_UID=1000
+# ARG USER_GID=$USER_UID
 
-# Use os argumentos para configurar um usuário não-root.
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID --create-home --shell /bin/bash $USERNAME \
-    && chown -R $USER_UID:$USER_GID /home/$USERNAME
+# # Use os argumentos para configurar um usuário não-root.
+# RUN groupadd --gid $USER_GID $USERNAME \
+#     && useradd --uid $USER_UID --gid $USER_GID --create-home --shell /bin/bash $USERNAME \
+#     && chown -R $USER_UID:$USER_GID /home/$USERNAME
 
-USER usuario-padrao
+# USER usuario-padrao
 
 # Define variáveis de ambiente necessárias para configurar o SQL Server
 # Aceite o EULA, defina a senha do SA e defina o tipo de edição do SQL Server
