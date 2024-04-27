@@ -35,7 +35,6 @@
 ## Docker compose
 *arquivo que compoe e cria varios containers ali definidos.*
 
-
 ## Regras para segurança, boas práticas.
   ✅ Cada contêiner deve ter sua própria responsabilidade.
   ✅ Contêineres devem ser imutáveis, leves e rápidos.
@@ -51,3 +50,9 @@
   ✅ Isole as redes de aplicações no Docker.
   ✅ Exposição de portas - Evite expor muitas portas e trabalhe uma regra de Firewall
   ✅ Defina um usuário sem privilégios
+
+## Elasticsearch
+*Ferramenta para monitorar todos os dados da aplicação, podemos criar dashboards com os dados coletados. Pode ser instalado no docker.* 
+  - Logging
+  - Observabilidade
+  - Monitoramento
