@@ -34,3 +34,20 @@
 
 ## Docker compose
 *arquivo que compoe e cria varios containers ali definidos.*
+
+
+## Regras para segurança, boas práticas.
+  ✅ Cada contêiner deve ter sua própria responsabilidade.
+  ✅ Contêineres devem ser imutáveis, leves e rápidos.
+  ✅ Não armazene dados em seus contêineres.
+  ✅ Contêineres devem ser fáceis de destruir e reconstruir.
+  ✅ Use uma imagem base pequena(como o Linux Alpine).
+  ✅ Imagens menores são mais fáceis de distribuir.
+  ✅ Evite instalar pacotes desnecessários. Isso mantém a imagem limpa e segura.
+  ✅ Sempre atualize o Host e o Docker.
+  ✅ Não exponha o Daemon.
+  ✅ Conheça de onde vem a imagem.
+  ✅ Verifique vulnerabilidades nas imagens.
+  ✅ Isole as redes de aplicações no Docker.
+  ✅ Exposição de portas - Evite expor muitas portas e trabalhe uma regra de Firewall
+  ✅ Defina um usuário sem privilégios
