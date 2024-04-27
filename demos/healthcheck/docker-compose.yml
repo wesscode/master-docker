@@ -10,7 +10,7 @@ services:
         environment:
             ASPNETCORE_ENVIRONMENT: Production
         restart: always
-        healthcheck:
+        healthcheck: #teste de health. Docker não derruba o container por esta unhealth, mas os dependentes ficam aguardando ficar health.
           test: ["CMD", "curl", "-f", "http://localhost:8080/healthz"]
           interval: 10s
           timeout: 5s
@@ -29,4 +29,4 @@ services:
           - "8080:80"     
         depends_on:
           api-demo:
-            condition: service_healthy   
+            condition: service_healthy # depende se ele estiver health
