@@ -1,9 +1,9 @@
 ### Lets go DOCKER 🐋🐋
 
 ## Fundamentos de rede
-    - Existe a rede do host e a rede do docker
-    - O container pode está em mais de uma rede
-    - Drivers de comunicação de rede: Bridge(padrão), None, Host
+ - Existe a rede do host e a rede do docker
+ - O container pode está em mais de uma rede
+ - Drivers de comunicação de rede: Bridge(padrão), None, Host
     
 
 ## Especificando Drivers de rede
@@ -15,6 +15,24 @@
   **- Docker Desktop**
   **- Docker engine**
   **- Portainer**
+
+## Arquitetura docker
+  - Client
+    - docker build
+    - docker pull
+    - docker run
+   
+  - Host
+    - docker deamon
+    - containers
+    - images local
+   
+  - Registry
+    - Docker hub
+    - ECR (AWS)
+    - ACR (Azure)
+    - GCP
+    - oracle 
 
 ## Tipo de volumes
 *Definição de volume é o compartilhamento de um espaço para armazenamento no host, o container tem acesso a uma **Docker area** dentro do Filesystem*
@@ -37,6 +55,10 @@
 
 ## Container
 - Tecnologia que permite empacotar e executar aplicações de maneira isolada
+- Tem como base o kernel do linux
+  - Namespace
+  - CGroups
+  - OverlayFS
 
 ## Imagem
 - Uma imagem Docker é como um "modelo" ou "template" usado para criar containers. Ela contém todo o ambiente necessário para executar uma aplicação, como o sistema operacional, bibliotecas, dependências e o próprio código da aplicação. Pense na imagem como uma fotografia instantânea de uma configuração pronta para ser usada.
