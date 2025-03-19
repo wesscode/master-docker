@@ -35,6 +35,14 @@
 ## Docker compose
 *arquivo que compoe e cria varios containers ali definidos.*
 
+## Container
+- Tecnologia que permite empacotar e executar aplicações de maneira isolada
+
+## Imagem
+- Uma imagem Docker é como um "modelo" ou "template" usado para criar containers. Ela contém todo o ambiente necessário para executar uma aplicação, como o sistema operacional, bibliotecas, dependências e o próprio código da aplicação. Pense na imagem como uma fotografia instantânea de uma configuração pronta para ser usada.
+
+_**Através das imagens docker geramos containers ou processos isolados das nossas aplicações**_
+
 ## Regras para segurança, boas práticas.
   ✅ Cada contêiner deve ter sua própria responsabilidade. </br>
   ✅ Contêineres devem ser imutáveis, leves e rápidos. </br>
